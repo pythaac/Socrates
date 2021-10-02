@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Socrates</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="/js/question.js"></script>
+<h1>Know Yourself</h1>
+<img th:src="@{/images/picture_socrates.png}" th:width="300px" th:height="auto"/>
+<br>
+<br>
+<div>
+  <h3>유형을 선택하세요.</h3>
+  <input value="인성면접" type="button" onclick="get_personality()">
+  <input value="기술면접" type="button" onclick="get_skill()">
+  <input value="프로젝트" type="button" onclick="get_project()">
+  <input value="전체랜덤" type="button" onclick="get_all()">
+  <br>
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+  <br>
+  <div>
+    <h3>유형</h3>
+    <p id="q_block_type" th:text="blank"></p>
+    <h3>문제</h3>
+    <p id="q_block_question" th:text="blank"></p>
+    <h3>작성</h3>
+    <textarea rows="5" cols="50"></textarea>
+    <details>
+      <summary>키워드</summary>
+      <p id="q_block_keyword" th:text="blank"></p>
+    </details>
+    <details>
+      <summary>정답</summary>
+      <p id="q_block_answer" th:text="blank"></p>
+    </details>
+  </div>
+  <br>
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+  <br>
+  <details>
+    <summary>문제 추가하기</summary>
+    <h3>문제</h3>
+    <textarea id="question" rows="5" cols="50"></textarea>
+    <h3>키워드</h3>
+    <textarea id="keyword" rows="5" cols="50"></textarea>
+    <h3>정답</h3>
+    <textarea id="answer" rows="5" cols="50"></textarea>
+    <h3>타입</h3>
+    <select id="type">
+      <option value="">타입선택</option>
+      <option value="personality">인성면접</option>
+      <option value="skill">기술면접</option>
+      <option value="project">프로젝트</option>
+    </select>
+    <p id="saved" th:text="전송결과"></p>
+    <br>
+    <br>
+    <br>
+    <input value="저장하기" type="button" onclick="put_question()">
+  </details>
+</div>
+</body>
+</html>
